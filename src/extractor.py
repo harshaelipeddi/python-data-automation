@@ -1,5 +1,5 @@
 """
-Extractor Module
+Extractor Module for
 Supports extraction from CSV files, databases (MySQL), and REST APIs.
 """
 

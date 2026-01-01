@@ -1,3 +1,4 @@
+#config.yaml
 source:
   type: csv
   filepath: data/raw/sample_input.csv
