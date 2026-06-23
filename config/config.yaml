@@ -1,0 +1,55 @@
+source:
+  type: csv
+  filepath: data/raw/sample_input.csv
+
+  type: database
+  database:
+    host: localhost
+    port: 3306
+    user: root
+    password: admin@123
+    database: etl_src_db
+  query: "SELECT * FROM employees WHERE active = 1"
+
+  type: api
+  url: https://jsonplaceholder.typicode.com/users
+  headers:
+    Authorization: "Bearer abc123def456ghi789jkl"
+  params:
+    limit: 100
+  data_key: data
+
+transform:
+  version: "1.0.0"
+  rename_columns:
+    "First Name": first_name
+    "Last Name": last_name
+    "Email Address": email
+    "Department": department
+    "Salary": salary
+  type_casts:
+    salary: float
+  required_fields:
+    - first_name
+    - email
+
+destination:
+  type: csv
+  output_dir: data/processed
+
+  type: database
+  database:
+    host: localhost
+    port: 3306
+    user: root
+    password: admin@123
+    database: etl_des_db
+  table: employees_processed
+
+  type: json
+  output_dir: data/processed
+
+logging:
+  level: INFO
+  log_dir: data/logs
+  log_file: etl.log
