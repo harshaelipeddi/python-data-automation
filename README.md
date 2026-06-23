@@ -39,7 +39,7 @@ python-data-automation/
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/python-data-automation.git
+git clone https://github.com/harshaelipeddi/python-data-automation.git
 cd python-data-automation
 
 # 2. Create virtual environment
@@ -69,8 +69,8 @@ source:
   database:
     host: localhost
     user: root
-    password: your_password
-    database: your_db
+    password: **********
+    database: etl_src_db
   query: "SELECT * FROM employees"
 ```
 
